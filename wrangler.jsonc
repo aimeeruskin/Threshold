@@ -6,9 +6,19 @@
   // global_fetch_strictly_public: required to fetch OAuth Client ID Metadata Documents safely.
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
   "observability": { "enabled": true },
-  // Database and KV namespace are created for you on first deploy.
-  "d1_databases": [{ "binding": "DB", "database_name": "threshold" }],
-  "kv_namespaces": [{ "binding": "OAUTH_KV" }],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "threshold-db",
+      "database_id": "46136a68-6ced-4c0b-b22b-ee7ed64cc7d7"
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "OAUTH_KV",
+      "id": "b7ffc94b09924608822dd9e3bd58ba50"
+    }
+  ],
   // Refresh recent days, backfill history, and decode FIT files in small steps.
   "triggers": { "crons": ["*/10 * * * *"] },
   // Keep settings you change in the dashboard (TIMEZONE, PLAN, ...) when a new version deploys.
